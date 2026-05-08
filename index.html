@@ -65,8 +65,7 @@
         }
 
         .header {
-            display: flex;
-            justify-content: space-between;
+            text-align: center;
             align-items: center;
             margin-bottom: 24px;
         }
@@ -75,6 +74,10 @@
             color: var(--accent-color);
             font-size: 1.5rem;
             margin: 0;
+        }
+
+        a {
+            color: var(--accent-color);
         }
 
         input[type="text"] {
@@ -141,13 +144,19 @@
 
 <body>
     <div class="header">
-        <h1>Named in Canvas hack</h1>
+        <p>These institutions were named in the May 2026 Canvas security incident.</p>
+        <p><a href="/note.txt">Original list</a> | <a href="https://github.com/acmucsd/canvas-breach">Other
+                files</a> | <a href="https://cyber.acmucsd.com/canvas">More info</a></p>
     </div>
 
     <input type="text" id="searchInput" placeholder="Type to search...">
     <ul id="resultsList"></ul>
 
     <script>
+        if (window.self !== window.top) {
+            document.querySelector('div.header').style.display = 'none';
+        }
+
         const html = document.documentElement;
 
         function initTheme() {
