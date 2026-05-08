@@ -12,7 +12,6 @@
         rel="stylesheet">
     <style>
         :root {
-            /* Light mode (default) */
             --bg-color: #ffffff;
             --accent-color: #52bfbf;
             --text-main: #0c0b09;
@@ -24,7 +23,6 @@
 
         @media (prefers-color-scheme: dark) {
             :root {
-                /* Dark mode */
                 --bg-color: #030712;
                 --accent-color: #52bfbf;
                 --text-main: #f3f4f6;
@@ -109,7 +107,6 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            /* Space between list items */
         }
 
         li {
@@ -144,17 +141,15 @@
 
 <body>
     <div class="header">
-        <h1>Claimed as affected in Canvas hack</h1>
+        <h1>Named in Canvas hack</h1>
     </div>
 
     <input type="text" id="searchInput" placeholder="Type to search...">
     <ul id="resultsList"></ul>
 
     <script>
-        // Theme management
         const html = document.documentElement;
 
-        // Initialize theme from localStorage or system preference
         function initTheme() {
             const savedTheme = localStorage.getItem('theme');
             let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -166,7 +161,6 @@
             localStorage.setItem('theme', theme);
         }
 
-        // Listen for system theme changes
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
             if (!localStorage.getItem('theme')) {
                 applyTheme(e.matches ? 'dark' : 'light');
@@ -175,7 +169,6 @@
 
         initTheme();
 
-        // JSON search functionality
         let dataList = [];
         const searchInput = document.getElementById('searchInput');
         const resultsList = document.getElementById('resultsList');
